@@ -7,7 +7,6 @@ function createGameboard(){
 }
 
 function createPlayer(){
-    return false
     //diff in real and com, own gameboard
 }
 
@@ -22,4 +21,4 @@ function greeting(name){
 //     greeting
 // }
 
-module.exports = { greeting, createPlayer }
+module.exports = { greeting, createPlayer, createGameboard, createShip }

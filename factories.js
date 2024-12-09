@@ -7,5 +7,19 @@ function createGameboard(){
 }
 
 function createPlayer(){
+    return false
     //diff in real and com, own gameboard
 }
+
+function greeting(name){
+    return "hello " + name;
+}
+
+// export {
+//     createShip,
+//     createGameboard,
+//     createPlayer,
+//     greeting
+// }
+
+module.exports = { greeting, createPlayer }

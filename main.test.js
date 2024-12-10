@@ -47,3 +47,7 @@ test('returns C4', () => {
 test('changes C4', () => {
     expect(factories.createGameboard("john").placeShip(1,"c",4)).toBe(1);
 })
+
+test('checks game over', () => {
+    expect(factories.createGameboard("john").checkGameOver()).toBe(true)
+})

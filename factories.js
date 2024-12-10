@@ -31,10 +31,10 @@ function createGameboard(owner){
     //places ships via factory, receiveAttack to determine if ship was hit, report if all ships have been sunk
     const gameboardOwner = owner;
     let board = {
-        a : [0,0,0,0,0,0,0,0,0,0],
-        b : [0,0,0,0,0,0,0,0,0,0],
-        c : [0,0,0,0,0,0,0,0,0,0],
-        d : [0,0,0,0,0,0,0,0,0,0],
+        a : [0,0,0,0,0,0,0,0,0,0],      //0 = water
+        b : [0,0,0,0,0,0,0,0,0,0],      //1 = ship
+        c : [0,0,0,0,0,0,0,0,0,0],      //3 = wreck
+        d : [0,0,0,0,0,0,0,0,0,0],      //4 = miss
         e : [0,0,0,0,0,0,0,0,0,0],
         f : [0,0,0,0,0,0,0,0,0,0],
         g : [0,0,0,0,0,0,0,0,0,0],
@@ -93,10 +93,23 @@ function createGameboard(owner){
 
     }
     const receiveAttack = () => {
-
+        //take field to attack
+        //check if field is populated
+        //hit ship if true
+        //mark as hit
     }
     const checkGameOver = () => {
-
+        //check board for unhit ships
+        for(key in board){
+            for(let i = 0; i < key.length; i++){
+                if(i === 1){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        }
     }
 
     return{

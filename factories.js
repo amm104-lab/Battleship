@@ -47,7 +47,7 @@ function createGameboard(owner){
     const getBoard = () => board;
 
     const placeShip = (length, letter, index) => {
-        const ship = createShip(length,0);
+        const ship = createShip(length, 0);
         switch (letter){
             case "a" :
                 getBoard().a[index] = 1;
@@ -92,11 +92,103 @@ function createGameboard(owner){
         }
 
     }
-    const receiveAttack = () => {
+    const receiveAttack = (letter, index) => {
         //take field to attack
         //check if field is populated
         //hit ship if true
         //mark as hit
+        switch (letter){
+            case "a" :
+                if(getBoard().a[index] === 1){
+                    ship.hit();
+                    getBoard().a[index] = 3;
+                }
+                else{
+                    getBoard().a[index] = 4;
+                }
+                break;
+            case "b" :
+                if(getBoard().b[index] === 1){
+                    ship.hit();
+                    getBoard().b[index] = 3;
+                }
+                else{
+                    getBoard().b[index] = 4;
+                }
+                break;
+            case "c" :
+                if(getBoard().c[index] === 1){
+                    ship.hit();
+                    getBoard().c[index] = 3;
+                }
+                else{
+                    getBoard().c[index] = 4;
+                }
+                break;
+            case "d" :
+                if(getBoard().d[index] === 1){
+                    ship.hit();
+                    getBoard().d[index] = 3;
+                }
+                else{
+                    getBoard().d[index] = 4;
+                }
+                break;
+            case "e" :
+                if(getBoard().e[index] === 1){
+                    ship.hit();
+                    getBoard().e[index] = 3;
+                }
+                else{
+                    getBoard().e[index] = 4;
+                }
+                break;
+            case "f" :
+                if(getBoard().f[index] === 1){
+                    ship.hit();
+                    getBoard().f[index] = 3;
+                }
+                else{
+                    getBoard().f[index] = 4;
+                }
+                break;
+            case "g" :
+                if(getBoard().g[index] === 1){
+                    ship.hit();
+                    getBoard().g[index] = 3;
+                }
+                else{
+                    getBoard().g[index] = 4;
+                }
+                break;
+            case "h" :
+                if(getBoard().h[index] === 1){
+                    ship.hit();
+                    getBoard().h[index] = 3;
+                }
+                else{
+                    getBoard().h[index] = 4;
+                }
+                break;
+            case "i" :
+                if(getBoard().i[index] === 1){
+                    ship.hit();
+                    getBoard().i[index] = 3;
+                }
+                else{
+                    getBoard().i[index] = 4;
+                }
+                break;
+            case "j" :
+                if(getBoard().j[index] === 1){
+                    ship.hit();
+                    getBoard().j[index] = 3;
+                }
+                else{
+                    getBoard().j[index] = 4;
+                }
+                break;
+        } //dry this!!
     }
     const checkGameOver = () => {
         //check board for unhit ships

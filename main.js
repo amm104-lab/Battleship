@@ -7,3 +7,4 @@
 */
 const factories = require("./factories")
 
+const shipOne = factories.createShip(3);

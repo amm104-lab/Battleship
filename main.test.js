@@ -1,6 +1,7 @@
 const factories = require("./factories")
 const main = require("./main")
 const dom = require("./dom")
+const {createPlayer} = require("./factories");
 
 
 test('returns hello', () => {
@@ -32,8 +33,17 @@ test('sinks ship', () => {
 })
 
 
+
 //createGameboard factory tests
 
-test('something', () => {
+test('returns gameboardOwner', () => {
+    expect(factories.createGameboard("john").getGameboardOwner()).toBe("john");
+})
 
+test('returns C4', () => {
+    expect(factories.createGameboard("john").getBoard().c[4]).toBe(0);
+})
+
+test('changes C4', () => {
+    expect(factories.createGameboard("john").placeShip(1,"c",4)).toBe(1);
 })

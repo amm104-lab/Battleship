@@ -43,7 +43,53 @@ function createGameboard(owner){
         j : [0,0,0,0,0,0,0,0,0,0],
     }
 
-    const placeShip = (ship, placement) => {
+    const getGameboardOwner = () => gameboardOwner;
+    const getBoard = () => board;
+
+    const placeShip = (length, letter, index) => {
+        const ship = createShip(length,0);
+        switch (letter){
+            case "a" :
+                getBoard().a[index] = 1;
+                return getBoard().a[index];
+                break;
+            case "b" :
+                getBoard().b[index] = 1;
+                return getBoard().b[index];
+                break;
+            case "c" :
+                getBoard().c[index] = 1;
+                return getBoard().c[index];
+                break;
+            case "d" :
+                getBoard().d[index] = 1;
+                return getBoard().d[index];
+                break;
+            case "e" :
+                getBoard().e[index] = 1;
+                return getBoard().e[index];
+                break;
+            case "f" :
+                getBoard().f[index] = 1;
+                return getBoard().f[index];
+                break;
+            case "g" :
+                getBoard().g[index] = 1;
+                return getBoard().g[index];
+                break;
+            case "h" :
+                getBoard().h[index] = 1;
+                return getBoard().h[index];
+                break;
+            case "i" :
+                getBoard().i[index] = 1;
+                return getBoard().i[index];
+                break;
+            case "j" :
+                getBoard().j[index] = 1;
+                return getBoard().j[index];
+                break;
+        }
 
     }
     const receiveAttack = () => {
@@ -51,6 +97,14 @@ function createGameboard(owner){
     }
     const checkGameOver = () => {
 
+    }
+
+    return{
+        getGameboardOwner,
+        getBoard,
+        placeShip,
+        receiveAttack,
+        checkGameOver
     }
 }
 

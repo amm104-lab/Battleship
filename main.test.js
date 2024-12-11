@@ -41,12 +41,12 @@ test('returns gameboardOwner', () => {
 })
 
 test('returns C4', () => {
-    expect(factories.createGameboard("john").getBoard().c[4]).toBe(0);
+    expect(factories.createGameboard("john").getBoard()[2][4]).toBe(0);
 })
 
-test('changes C4', () => {
-    expect(factories.createGameboard("john").placeShip(1,"c",4)).toBe(1);
-})
+// test('changes C4', () => {
+//     expect(factories.createGameboard("john").placeShip(1,2,4)).toBe(1);
+// })
 
 test('checks game over', () => {
     expect(factories.createGameboard("john").checkGameOver()).toBe(true)

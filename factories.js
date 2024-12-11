@@ -59,25 +59,35 @@ function createGameboard(owner){
         //check if field is populated
         //hit ship if true
         //mark as hit
-        let ship = "";
+        let ship = getShips()[0];
        if(getBoard()[i][j] === 1){
+           ship.hit();
            ship.sink();
-           getBoard()[i][j] = 3
+           if(ship.getIfSunk() === true){
+               getBoard()[i][j] = 3}
        }
     }
     const checkGameOver = () => {
         //check board for unhit ships
-        for(key in board){
-            for(let i = 0; i < key.length; i++){
-                if(i === 1){
-                    return false;
+        for(let i = 0; i < getBoard().length; i++){
+            for(let j = 0; j < getBoard()[i].length; j++){
+                if (getBoard()[i][j] === 1){
+                    return false
                 }
-                else{
-                    return true;
-                }
-            }
-        }
+        }}
+        return true;
+    //     for(key in board){
+    //         for(let i = 0; i < key.length; i++){
+    //             if(i === 1){
+    //                 return false;
+    //             }
+    //             else{
+    //                 return true;
+    //             }
+    //         }
+    //     }
     }
+
 
     return{
         getShips,

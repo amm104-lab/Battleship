@@ -63,6 +63,28 @@ test('checks game over', () => {
     expect(factories.createGameboard("john").checkGameOver()).toBe(true)
 })
 
+test('game over after all ships have been sunk', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(1, 2, 3);
+    expect(john.getBoard()[2][3]).toBe(1);
+    expect(john.checkGameOver()).toBe(false);
+    john.receiveAttack(2,3)
+    expect(john.getShips()[0].getIfSunk()).toBe(true);
+    expect(john.getBoard()[2][3]).toBe(3);
+    expect(john.checkGameOver()).toBe(true);
+})
+//
+// test('returns true', () => {
+//     let john = factories.createGameboard("john");
+//     expect(john.checkGameOver()).toBe(true);
+//     john.placeShip(1, 2, 3);
+//     expect(john.checkGameOver()).toBe(true);
+//     john.getShips()[0].hit();
+//     john.getShips()[0].sink();
+//     john.getShips()[0].getIfSunk();
+//     expect(john.checkGameOver()).toBe(true);
+// })
+
 test('places ship in ship array', () => {
     let john = factories.createGameboard("john");
     let ship = john.placeShip(1, 2, 5);

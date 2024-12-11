@@ -1,15 +1,15 @@
-function createShip(length,damaged){
+function createShip(length){
 
     //length, times hit, sunk, hit increase
     const shipLength = length;
-    let timesHit = damaged;
+    let timesHit = 0;
     let hasBeenSunk = false;
 
     const getTimesHit = () => timesHit;
     const getShipLength = () => shipLength;
     const getIfSunk = () => hasBeenSunk;
 
-    const hit = () => timesHit+1;
+    const hit = () => timesHit++;
     const sink = () => {
         if (getTimesHit() === shipLength){
             hasBeenSunk = true;
@@ -43,11 +43,16 @@ function createGameboard(owner){
         [0,0,0,0,0,0,0,0,0,0],
     ]
 
+    let ships = []
+
+    const getShips = ships;
+
     const getGameboardOwner = () => gameboardOwner;
     const getBoard = () => board;
 
     const placeShip = (length, i, j) => {
         const ship = createShip(length, 0);
+        ships.push(ship);
         getBoard()[i][j] = 1;
     }
     const receiveAttack = (i, j) => {
@@ -55,6 +60,7 @@ function createGameboard(owner){
         //check if field is populated
         //hit ship if true
         //mark as hit
+        let ship = "";
        if(getBoard()[i][j] === 1){
            ship.sink();
            getBoard()[i][j] = 3

@@ -14,7 +14,6 @@ function createShip(length){
         if (getTimesHit() === shipLength){
             hasBeenSunk = true;
         }
-        return getIfSunk();
     }
 
     return{
@@ -45,13 +44,13 @@ function createGameboard(owner){
 
     let ships = []
 
-    const getShips = ships;
+    const getShips = () => ships;
 
     const getGameboardOwner = () => gameboardOwner;
     const getBoard = () => board;
 
     const placeShip = (length, i, j) => {
-        const ship = createShip(length, 0);
+        const ship = createShip(length);
         ships.push(ship);
         getBoard()[i][j] = 1;
     }
@@ -81,6 +80,7 @@ function createGameboard(owner){
     }
 
     return{
+        getShips,
         getGameboardOwner,
         getBoard,
         placeShip,

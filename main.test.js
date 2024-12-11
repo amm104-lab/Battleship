@@ -36,8 +36,9 @@ test('sinks ship', () => {
     ship.hit();
     ship.hit();
     ship.hit();
-    expect(ship.getTimesHit()).toBe(3)
-    expect(ship.sink()).toBe(true);
+    expect(ship.getTimesHit()).toBe(3);
+    ship.sink();
+    expect(ship.getIfSunk()).toBe(true);
 })
 
 
@@ -60,4 +61,18 @@ test('changes C4', () => {
 
 test('checks game over', () => {
     expect(factories.createGameboard("john").checkGameOver()).toBe(true)
+})
+
+test('places ship in ship array', () => {
+    let john = factories.createGameboard("john");
+    let ship = john.placeShip(1, 2, 5);
+    expect(john.getShips()).toBeDefined();
+})
+
+test('places multiple ships in ship array', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(1, 2, 5);
+    john.placeShip(1, 3,5);
+    expect(john.getShips()[0]).toBeDefined();
+    expect(john.getShips()[1]).toBeDefined();
 })

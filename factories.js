@@ -42,9 +42,24 @@ function createGameboard(owner){
         [0,0,0,0,0,0,0,0,0,0],
     ]
 
+    let shipBoard = [
+        [,,,,,,,,,],      //0 = water
+        [,,,,,,,,,],      //1 = ship
+        [,,,,,,,,,],      //2 = miss
+        [,,,,,,,,,],      //3 = wreck
+        [,,,,,,,,,],
+        [,,,,,,,,,],
+        [,,,,,,,,,],
+        [,,,,,,,,,],
+        [,,,,,,,,,],
+        [,,,,,,,,,],
+    ]
+
     let ships = []
 
     const getShips = () => ships;
+
+    const getShipBoard = () => shipBoard;
 
     const getGameboardOwner = () => gameboardOwner;
     const getBoard = () => board;
@@ -53,19 +68,21 @@ function createGameboard(owner){
         const ship = createShip(length);
         ships.push(ship);
         getBoard()[i][j] = 1;
+        getShipBoard()[i][j] = getShips().indexOf(ship);
     }
     const receiveAttack = (i, j) => {
         //take field to attack
         //check if field is populated
         //hit ship if true
         //mark as hit
-        let ship = getShips()[0];
-       if(getBoard()[i][j] === 1){
+
+        if(getBoard()[i][j] === 1){
+           let ship = getShips[getShipBoard()[i][j]];
            ship.hit();
            ship.sink();
            if(ship.getIfSunk() === true){
                getBoard()[i][j] = 3}
-       }
+        }
     }
     const checkGameOver = () => {
         //check board for unhit ships
@@ -93,9 +110,10 @@ function createGameboard(owner){
         getShips,
         getGameboardOwner,
         getBoard,
+        getShipBoard,
         placeShip,
         receiveAttack,
-        checkGameOver
+        checkGameOver,
     }
 }
 

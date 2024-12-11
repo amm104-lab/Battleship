@@ -73,17 +73,6 @@ test('game over after all ships have been sunk', () => {
     expect(john.getBoard()[2][3]).toBe(3);
     expect(john.checkGameOver()).toBe(true);
 })
-//
-// test('returns true', () => {
-//     let john = factories.createGameboard("john");
-//     expect(john.checkGameOver()).toBe(true);
-//     john.placeShip(1, 2, 3);
-//     expect(john.checkGameOver()).toBe(true);
-//     john.getShips()[0].hit();
-//     john.getShips()[0].sink();
-//     john.getShips()[0].getIfSunk();
-//     expect(john.checkGameOver()).toBe(true);
-// })
 
 test('places ship in ship array', () => {
     let john = factories.createGameboard("john");
@@ -97,4 +86,18 @@ test('places multiple ships in ship array', () => {
     john.placeShip(1, 3,5);
     expect(john.getShips()[0]).toBeDefined();
     expect(john.getShips()[1]).toBeDefined();
+})
+
+test('places ship index in shipBoard according to board', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(1, 2, 5);
+    expect(john.getShipBoard()[2][5]).toBe(0);
+    john.placeShip(1, 5, 3);
+    expect(john.getShipBoard()[5][3]).toBe(1);
+})
+
+test('gets object from ships over shipBoard according to board', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(1, 2, 5);
+    expect(john.getShips()[john.getShipBoard()[2][5]]).toBe(false)
 })

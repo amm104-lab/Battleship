@@ -104,3 +104,15 @@ test('gets object from ships over shipBoard according to board', () => {
     ship.hit()
     expect(ship.getTimesHit()).toBe(1)
 })
+
+test('marks water, ships, wracks and misses correctly', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(1, 2, 5);
+    john.placeShip(1, 3, 4);
+    john.receiveAttack(3,4);
+    john.receiveAttack(2,4);
+    expect(john.getBoard()[1][7]).toBe(0);
+    expect(john.getBoard()[2][5]).toBe(1);
+    expect(john.getBoard()[2][4]).toBe(2);
+    expect(john.getBoard()[3][4]).toBe(3);
+})

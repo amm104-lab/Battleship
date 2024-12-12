@@ -83,6 +83,9 @@ function createGameboard(owner){
            if(ship.getIfSunk() === true){
                getBoard()[i][j] = 3}
         }
+        else{
+            getBoard()[i][j] = 2;
+        }
     }
     const checkGameOver = () => {
         //check board for unhit ships

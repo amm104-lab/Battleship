@@ -117,6 +117,14 @@ test('marks water, ships, wracks and misses correctly', () => {
     expect(john.getBoard()[3][4]).toBe(3);
 })
 
+test('places ships longer than 1', () => {
+    let john = factories.createGameboard("john");
+    john.placeShip(3, 2, 5, 2,7);
+    expect(john.getBoard()[2][5]).toBe(1);
+    expect(john.getBoard()[2][6]).toBe(1);
+    expect(john.getBoard()[2][7]).toBe(1);
+})
+
 //createPlayer factory tests
 
 test('returs name', () => {

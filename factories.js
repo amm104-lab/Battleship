@@ -64,11 +64,22 @@ function createGameboard(owner){
     const getGameboardOwner = () => gameboardOwner;
     const getBoard = () => board;
 
-    const placeShip = (length, i, j) => {
+    const placeShip = (length, i, j, k, l) => {
         const ship = createShip(length);
         ships.push(ship);
-        getBoard()[i][j] = 1;
-        getShipBoard()[i][j] = getShips().indexOf(ship);
+
+        if(i === k){
+            for(let m = 0; m < length; m++, j++) {
+                getBoard()[i][j] = 1;
+                getShipBoard()[i][j] = getShips().indexOf(ship);
+            }
+        }
+        else {
+            for(let m = 0; m < length; m++, i++) {
+                getBoard()[i][j] = 1;
+                getShipBoard()[i][j] = getShips().indexOf(ship);
+            }
+        }
     }
     const receiveAttack = (i, j) => {
         //take field to attack

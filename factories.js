@@ -123,6 +123,15 @@ function createGameboard(owner){
 function createPlayer(user){
     //diff in real and com, own gameboard
     const playerBoard = createGameboard(user);
+    const playerName = user;
+
+    const getPlayerName = () => playerName;
+    const getPlayerBoard = () => playerBoard;
+
+    return{
+        getPlayerBoard,
+        getPlayerName
+    }
 }
 
 function greeting(name){

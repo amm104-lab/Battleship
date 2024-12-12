@@ -116,3 +116,15 @@ test('marks water, ships, wracks and misses correctly', () => {
     expect(john.getBoard()[2][4]).toBe(2);
     expect(john.getBoard()[3][4]).toBe(3);
 })
+
+//createPlayer factory tests
+
+test('returs name', () => {
+    expect(factories.createPlayer("john").getPlayerName()).toBe("john");
+})
+
+test('creates gameboard and allows access to it', () => {
+    let john = factories.createPlayer("john");
+    expect(john.getPlayerBoard()).toBeDefined();
+    expect(john.getPlayerBoard().getBoard()[2][4]).toBe(0);
+})

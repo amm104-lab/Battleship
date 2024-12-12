@@ -99,5 +99,8 @@ test('places ship index in shipBoard according to board', () => {
 test('gets object from ships over shipBoard according to board', () => {
     let john = factories.createGameboard("john");
     john.placeShip(1, 2, 5);
-    expect(john.getShips()[john.getShipBoard()[2][5]]).toBe(false)
+    expect(john.getShips()[john.getShipBoard()[2][5]]).toBeDefined();
+    let ship = john.getShips()[john.getShipBoard()[2][5]]
+    ship.hit()
+    expect(ship.getTimesHit()).toBe(1)
 })

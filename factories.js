@@ -77,7 +77,7 @@ function createGameboard(owner){
         //mark as hit
 
         if(getBoard()[i][j] === 1){
-           let ship = getShips[getShipBoard()[i][j]];
+           let ship = getShips()[getShipBoard()[i][j]];
            ship.hit();
            ship.sink();
            if(ship.getIfSunk() === true){

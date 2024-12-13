@@ -135,11 +135,13 @@ function greeting(name){
     return "hello " + name;
 }
 
-// export {
-//     createShip,
-//     createGameboard,
-//     createPlayer,
-//     greeting
-// }
+export {
+    createShip,
+    createGameboard,
+    createPlayer,
+    greeting
+}
 
-module.exports = { greeting, createPlayer, createGameboard, createShip }
+
+//module.exports = { greeting, createPlayer, createGameboard, createShip }
+

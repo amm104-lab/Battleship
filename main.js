@@ -1,16 +1,16 @@
-const factories = require("./factories")
-const dom = require("./dom")
+//const factories = require("./factories")
+//const dom = require("./dom")
 
-// import {createPlayer} from "./factories";
-// import {setUpContainer, setUpPlayerBoard} from "./dom";
+import {createPlayer} from "./factories.js";
+import {setUpContainer, setUpPlayerBoard} from "./dom.js";
 
-const john = factories.createPlayer("john");
-const com = factories.createPlayer("com");
+const john = createPlayer("john");
+const com = createPlayer("com");
 
-dom.setUpContainer();
-dom.setUpPlayerBoard(john);
-dom.setUpPlayerBoard(com);
+//dom.setUpContainer();
+//dom.setUpPlayerBoard(john);
+//dom.setUpPlayerBoard(com);
 
-// setUpContainer();
-// setUpPlayerBoard(john);
-// setUpPlayerBoard(com);
+setUpContainer();
+setUpPlayerBoard(john);
+setUpPlayerBoard(com);

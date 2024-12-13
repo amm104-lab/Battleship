@@ -1,4 +1,4 @@
-const config = {
+export default  {
     clearMocks: true,
 
     collectCoverage: true,
@@ -12,4 +12,4 @@ const config = {
     transform: {}
 };
 
-module.exports = config;
+

@@ -15,6 +15,8 @@ function setUpPlayerBoard(player) {
     const container = document.querySelector(".container");
     container.appendChild(boardBase);
 
+    console.log(player.getPlayerName())
+
     for(let i = 0; i < player.getPlayerBoard().length; i++){
 
         const coord = document.createElement("div");
@@ -32,9 +34,9 @@ function setUpPlayerBoard(player) {
     }
 }
 
-module.exports = {
-    setUpContainer,
-    setUpPlayerBoard,
-}
+//module.exports = {
+//    setUpContainer,
+ //   setUpPlayerBoard,
+//}
 
-// export {setUpPlayerBoard, setUpContainer}
+export {setUpPlayerBoard, setUpContainer}

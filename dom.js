@@ -31,3 +31,10 @@ function setUpPlayerBoard(player) {
         }
     }
 }
+
+module.exports = {
+    setUpContainer,
+    setUpPlayerBoard,
+}
+
+// export {setUpPlayerBoard, setUpContainer}

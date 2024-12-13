@@ -1,0 +1,7 @@
+*{
+    outline: 2px solid red;
+}
+
+.container{
+    outline: 2px solid blue;
+}

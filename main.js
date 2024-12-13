@@ -1,10 +1,16 @@
-/*import {
-    // createShip,
-    // createGameboard,
-    // createPlayer
-    greeting
-} from "./factories";
-*/
 const factories = require("./factories")
+const dom = require("./dom")
 
-const shipOne = factories.createShip(3);
+// import {createPlayer} from "./factories";
+// import {setUpContainer, setUpPlayerBoard} from "./dom";
+
+const john = factories.createPlayer("john");
+const com = factories.createPlayer("com");
+
+dom.setUpContainer();
+dom.setUpPlayerBoard(john);
+dom.setUpPlayerBoard(com);
+
+// setUpContainer();
+// setUpPlayerBoard(john);
+// setUpPlayerBoard(com);

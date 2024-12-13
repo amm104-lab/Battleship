@@ -1,6 +1,5 @@
 function createShip(length){
 
-    //length, times hit, sunk, hit increase
     const shipLength = length;
     let timesHit = 0;
     let hasBeenSunk = false;
@@ -27,7 +26,7 @@ function createShip(length){
 
 
 function createGameboard(owner){
-    //places ships via factory, receiveAttack to determine if ship was hit, report if all ships have been sunk
+
     const gameboardOwner = owner;
     let board = [
         [0,0,0,0,0,0,0,0,0,0],      //0 = water
@@ -82,10 +81,6 @@ function createGameboard(owner){
         }
     }
     const receiveAttack = (i, j) => {
-        //take field to attack
-        //check if field is populated
-        //hit ship if true
-        //mark as hit
 
         if(getBoard()[i][j] === 1){
            let ship = getShips()[getShipBoard()[i][j]];
@@ -99,7 +94,7 @@ function createGameboard(owner){
         }
     }
     const checkGameOver = () => {
-        //check board for unhit ships
+
         for(let i = 0; i < getBoard().length; i++){
             for(let j = 0; j < getBoard()[i].length; j++){
                 if (getBoard()[i][j] === 1){
@@ -107,16 +102,7 @@ function createGameboard(owner){
                 }
         }}
         return true;
-    //     for(key in board){
-    //         for(let i = 0; i < key.length; i++){
-    //             if(i === 1){
-    //                 return false;
-    //             }
-    //             else{
-    //                 return true;
-    //             }
-    //         }
-    //     }
+
     }
 
 

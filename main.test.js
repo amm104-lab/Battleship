@@ -1,9 +1,3 @@
-//const factories = require("./factories")
-//const main = require("./main")
-//const dom = require("./dom")
-//const {createPlayer} = require("./factories");
-
-
 import {createGameboard, createPlayer, createShip, greeting} from "./factories.js";
 
 test('returns hello', () => {

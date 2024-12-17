@@ -86,9 +86,9 @@ function createGameboard(owner){
            let ship = getShips()[getShipBoard()[i][j]];
            ship.hit();
            ship.sink();
-           if(ship.getIfSunk() === true){
+           // if(ship.getIfSunk() === true){
                getBoard()[i][j] = 3}
-        }
+        // }
         else{
             getBoard()[i][j] = 2;
         }
@@ -106,6 +106,7 @@ function createGameboard(owner){
     }
 
     const getEnd = (x, y, length, direction) => {
+
         if(direction === "horizontal"){
             let z = x + length;
             placeShip(length,y,x,y,z)
@@ -130,7 +131,7 @@ function createGameboard(owner){
 }
 
 function createPlayer(user){
-    //diff in real and com, own gameboard
+
     const playerBoard = createGameboard(user);
     const playerName = user;
 
@@ -143,13 +144,8 @@ function createPlayer(user){
     }
 }
 
-function greeting(name){
-    return "hello " + name;
-}
-
 export {
     createShip,
     createGameboard,
     createPlayer,
-    greeting
 }

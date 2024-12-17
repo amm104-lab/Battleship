@@ -41,16 +41,16 @@ function setUpPlayerBoard(player) {
     }
 }
 
-function checkBoard(player, tile){
+function checkBoard(player, inite){
     for(let index = 0; index < player.getPlayerBoard().getBoard().length; index++){
         for(let undex = 0; undex < player.getPlayerBoard().getBoard()[index].length; undex++){
             if(player.getPlayerBoard().getBoard()[index][undex] != 0){
                 switch (player.getPlayerBoard().getBoard()[index][undex]){
                     case 2 :
-                        tile.style.backgroundColor = "#4C4CCBFF";
+                        inite.style.backgroundColor = "#4C4CCBFF";
                         break
                     case 3 :
-                        tile.style.backgroundColor = "grey";
+                        inite.style.backgroundColor = "grey";
                         break
                 }
             }
@@ -69,10 +69,6 @@ function deleteChildren(){
 }
 
 function setUpForm(player) {
-
-    //start
-    //length
-    //direction
 
     const dialog = document.createElement("dialog");
     dialog.setAttribute("class", "dialog");
@@ -177,7 +173,6 @@ function setUpForm(player) {
     dialog.showModal()
 
     submitBtn.addEventListener("click", () => {
-        // player.placeShip(length.value,Y.value,X.value);
         player.getPlayerBoard().getEnd(X.value,Y.value,length.value,direction.value);
         deleteChildren();
         setUpPlayerBoard(player);

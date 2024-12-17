@@ -7,5 +7,4 @@ const com = createPlayer("com");
 setUpContainer();
 setUpPlayerBoard(john);
 setUpForm(john);
-//checkBoard(); || setUpContainer(john); ?
 // setUpPlayerBoard(com);

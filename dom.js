@@ -176,6 +176,9 @@ function setUpForm(player) {
         player.getPlayerBoard().getEnd(X.value,Y.value,length.value,direction.value);
         deleteChildren();
         setUpPlayerBoard(player);
+        if(player.getPlayerBoard().getShips().length < 5){
+            setUpForm(player);
+        }
         console.table(player.getPlayerBoard().getBoard());
     })
 }

@@ -123,6 +123,7 @@ function createGameboard(owner){
         getGameboardOwner,
         getBoard,
         getShipBoard,
+        getShips,
         placeShip,
         receiveAttack,
         checkGameOver,

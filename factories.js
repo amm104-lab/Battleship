@@ -73,7 +73,7 @@ function createGameboard(owner){
                 getShipBoard()[i][j] = getShips().indexOf(ship);
             }
         }
-        else {
+        else if(j === l) {
             for(let m = 0; m < length; m++, i++) {
                 getBoard()[i][j] = 1;
                 getShipBoard()[i][j] = getShips().indexOf(ship);
@@ -105,6 +105,17 @@ function createGameboard(owner){
 
     }
 
+    const getEnd = (x, y, length, direction) => {
+        if(direction === "horizontal"){
+            let z = x + length;
+            placeShip(length,y,x,y,z)
+        }
+        else{
+            let z = y + length;
+            placeShip(length,y,x,z,x)
+        }
+    }
+
 
     return{
         getShips,
@@ -114,6 +125,7 @@ function createGameboard(owner){
         placeShip,
         receiveAttack,
         checkGameOver,
+        getEnd
     }
 }
 

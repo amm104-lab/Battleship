@@ -141,6 +141,13 @@ function createGameboard(owner){
         }
     }
 
+    function autoAttack(player){
+        let x = Math.floor(Math.random()*10)
+        let y = Math.floor(Math.random()*10)
+
+        player.getPlayerBoard().receiveAttack(y,x);
+    }
+
 
     return{
         getShips,
@@ -151,7 +158,8 @@ function createGameboard(owner){
         receiveAttack,
         checkGameOver,
         getEnd,
-        autoPlacement
+        autoPlacement,
+        autoAttack
     }
 }
 

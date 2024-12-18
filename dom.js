@@ -189,6 +189,8 @@ function setUpForm(player, player2) {
         setUpPlayerBoard(player);
         setUpPlayerBoard(player2);
         console.table(player.getPlayerBoard().getBoard());
+        // player2.getPlayerBoard().autoAttack(player);
+        // console.table(player.getPlayerBoard().getBoard());
     })
 
     submitBtn.addEventListener("click", () => {

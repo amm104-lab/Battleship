@@ -170,7 +170,21 @@ function setUpForm(player, player2) {
     form.appendChild(submitBtn);
 
 
+    const autoBtn = document.createElement("button");
+    autoBtn.setAttribute("class", "auto");
+    autoBtn.textContent = "Auto Place"
+    form.appendChild(autoBtn);
+
+
     dialog.showModal()
+
+    autoBtn.addEventListener("click", () => {
+        player.getPlayerBoard().autoPlacement();
+        deleteChildren();
+        setUpPlayerBoard(player);
+        setUpPlayerBoard(player2);
+        console.table(player.getPlayerBoard().getBoard());
+    })
 
     submitBtn.addEventListener("click", () => {
         player.getPlayerBoard().getEnd(X.value,Y.value,length.value,direction.value);

@@ -8,6 +8,8 @@ const com = createPlayer("com");
 
 function game(player1,player2){
     setUpContainer();
+    player2.getPlayerBoard().autoPlacement()
+    console.table(player2.getPlayerBoard().getBoard())
     setUpPlayerBoard(player1);
     setUpForm(player1,player2);
 

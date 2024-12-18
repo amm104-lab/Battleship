@@ -117,6 +117,30 @@ function createGameboard(owner){
         }
     }
 
+    function autoPlacement(){
+        for(let i = 0; i < 5; i++){
+            let x = Math.floor(Math.random()*10)
+            let y = Math.floor(Math.random()*10)
+            let direction = ""
+
+            if(Math.floor(Math.random()*2) === 1){
+                direction = "horizontal"
+            }
+            else{
+                direction = "vertical"
+            }
+
+            let length = Math.floor(Math.random()*5)
+
+            console.log(x)
+            console.log(y)
+            console.log(direction)
+            console.log(length)
+
+            getEnd(x,y,length,direction)
+        }
+    }
+
 
     return{
         getShips,
@@ -126,7 +150,8 @@ function createGameboard(owner){
         placeShip,
         receiveAttack,
         checkGameOver,
-        getEnd
+        getEnd,
+        autoPlacement
     }
 }
 

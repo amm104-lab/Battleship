@@ -7,7 +7,7 @@ function setUpContainer(){
     body.appendChild(container);
 }
 
-function setUpPlayerBoard(player) {
+function setUpPlayerBoard(player, player2) {
 
     const boardBase = document.createElement("div");
     boardBase.setAttribute("class", "board");
@@ -40,6 +40,10 @@ function setUpPlayerBoard(player) {
                 if(player.getPlayerBoard().checkGameOver() === true){
                     alert(`Game Over! ${player.getPlayerName()} has lost!`);
                     deleteChildren();
+                }
+                else{
+                    //console.table(player.getPlayerBoard().autoAttack(player));
+                    //player.getPlayerBoard().autoAttack(player);
                 }
             })
         }

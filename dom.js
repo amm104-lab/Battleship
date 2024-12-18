@@ -68,7 +68,7 @@ function deleteChildren(){
     }
 }
 
-function setUpForm(player) {
+function setUpForm(player, player2) {
 
     const dialog = document.createElement("dialog");
     dialog.setAttribute("class", "dialog");
@@ -176,8 +176,9 @@ function setUpForm(player) {
         player.getPlayerBoard().getEnd(X.value,Y.value,length.value,direction.value);
         deleteChildren();
         setUpPlayerBoard(player);
+        setUpPlayerBoard(player2);
         if(player.getPlayerBoard().getShips().length < 5){
-            setUpForm(player);
+            setUpForm(player, player2);
         }
         console.table(player.getPlayerBoard().getBoard());
     })

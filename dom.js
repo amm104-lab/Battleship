@@ -36,6 +36,11 @@ function setUpPlayerBoard(player) {
                 player.getPlayerBoard().receiveAttack(i,j);
                 console.table(player.getPlayerBoard().getBoard())
                 checkBoard(player, inate);
+                console.log(player.getPlayerBoard().checkGameOver())
+                if(player.getPlayerBoard().checkGameOver() === true){
+                    alert(`Game Over! ${player.getPlayerName()} has lost!`);
+                    deleteChildren();
+                }
             })
         }
     }

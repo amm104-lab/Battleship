@@ -6,7 +6,7 @@ const com = createPlayer("com");
 
 
 
-function game(player1,player2){
+function setUp(player1,player2){
     setUpContainer();
     player2.getPlayerBoard().autoPlacement()
     console.table(player2.getPlayerBoard().getBoard())
@@ -18,4 +18,4 @@ function game(player1,player2){
     // }
 }
 
-game(john,com);
+setUp(john,com);

@@ -43,9 +43,14 @@ function setUpPlayerBoard(player, player2) {
                     return false
                 }
                 else{
-                    console.log(player.getPlayerBoard().getAttacks())
-                    //console.table(player.getPlayerBoard().autoAttack(player));
-                    // player.getPlayerBoard().autoAttack(player);
+                    console.log(player.getPlayerBoard().getEnemy().getPlayerName())
+
+                    player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack(player.getPlayerBoard().getEnemy())
+
+                    console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard());
+
+                    checkBoard( player.getPlayerBoard().getEnemy(),
+                                player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack());
                 }
             })
         }

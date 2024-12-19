@@ -67,6 +67,12 @@ function createGameboard(owner){
     const getGameboardOwner = () => gameboardOwner;
     const getBoard = () => board;
 
+    let enemy;
+
+    const getEnemy = () => enemy;
+
+    const setEnemy = (player) => enemy = player;
+
     const placeShip = (length, i, j, k, l) => {
         const ship = createShip(length);
         ships.push(ship);
@@ -150,7 +156,18 @@ function createGameboard(owner){
         let x = Math.floor(Math.random()*10)
         let y = Math.floor(Math.random()*10)
 
-        player.getPlayerBoard().receiveAttack(y,x);
+        if(player){player.getPlayerBoard().receiveAttack(y,x);}
+
+        console.log("attacked")
+        console.log(x)
+        console.log(y)
+
+        const nodeL = document.querySelectorAll(`[data-index]`);
+        // const nodeL = $(`[data-index=${x}]`);
+        const arr = Array.from(nodeL);
+        // const cords = arr.find();
+        console.log(arr[x])
+        return arr[x]
     }
 
 
@@ -160,6 +177,8 @@ function createGameboard(owner){
         getBoard,
         getShipBoard,
         getAttacks,
+        getEnemy,
+        setEnemy,
         placeShip,
         receiveAttack,
         checkGameOver,

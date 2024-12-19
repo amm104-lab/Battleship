@@ -56,6 +56,10 @@ function createGameboard(owner){
 
     let ships = []
 
+    let attacks = 0;
+
+    const getAttacks = () => attacks;
+
     const getShips = () => ships;
 
     const getShipBoard = () => shipBoard;
@@ -81,7 +85,7 @@ function createGameboard(owner){
         }
     }
     const receiveAttack = (i, j) => {
-
+        attacks++;
         if(getBoard()[i][j] === 1){
            let ship = getShips()[getShipBoard()[i][j]];
            ship.hit();
@@ -100,7 +104,8 @@ function createGameboard(owner){
                 if (getBoard()[i][j] === 1){
                     return false
                 }
-        }}
+            }
+        }
         return true;
 
     }
@@ -154,6 +159,7 @@ function createGameboard(owner){
         getGameboardOwner,
         getBoard,
         getShipBoard,
+        getAttacks,
         placeShip,
         receiveAttack,
         checkGameOver,

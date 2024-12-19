@@ -37,13 +37,15 @@ function setUpPlayerBoard(player, player2) {
                 console.table(player.getPlayerBoard().getBoard())
                 checkBoard(player, inate);
                 console.log(player.getPlayerBoard().checkGameOver())
+
                 if(player.getPlayerBoard().checkGameOver() === true){
-                    alert(`Game Over! ${player.getPlayerName()} has lost!`);
-                    deleteChildren();
+                    alert(`Game Over! ${player.getPlayerName()}'s ships have all been sunk!`);
+                    return false
                 }
                 else{
+                    console.log(player.getPlayerBoard().getAttacks())
                     //console.table(player.getPlayerBoard().autoAttack(player));
-                    //player.getPlayerBoard().autoAttack(player);
+                    // player.getPlayerBoard().autoAttack(player);
                 }
             })
         }
@@ -209,8 +211,17 @@ function setUpForm(player, player2) {
     })
 }
 
+// function setUpAutoAttack(player){
+//     const board = document.querySelector(".board");
+//     board.addEventListener("click", () => {
+//         player.getPlayerBoard().autoAttack(player);
+//         console.table(player.getPlayerBoard().getBoard())
+//     })
+// }
+
 export {
     setUpPlayerBoard,
     setUpContainer,
-    setUpForm
+    setUpForm,
+    // setUpAutoAttack
 }

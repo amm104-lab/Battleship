@@ -32,25 +32,25 @@ function setUpPlayerBoard(player, player2) {
             coord.appendChild(inate);
 
             inate.addEventListener("click", () => {
-                console.log(`${i} ${j}`);
+                // console.log(`${i} ${j}`);
                 player.getPlayerBoard().receiveAttack(i,j);
-                console.table(player.getPlayerBoard().getBoard())
+                // console.table(player.getPlayerBoard().getBoard())
                 checkBoard(player, inate);
-                console.log(player.getPlayerBoard().checkGameOver())
+                // console.log(player.getPlayerBoard().checkGameOver())
 
                 if(player.getPlayerBoard().checkGameOver() === true){
                     alert(`Game Over! ${player.getPlayerName()}'s ships have all been sunk!`);
                     return false
                 }
                 else{
-                    console.log(player.getPlayerBoard().getEnemy().getPlayerName())
+                    // console.log(player.getPlayerBoard().getEnemy().getPlayerName())
+                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
+                    let elem = player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack(player.getPlayerBoard().getEnemy())
+                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
+                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard());
 
-                    player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack(player.getPlayerBoard().getEnemy())
-
-                    console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard());
-
-                    checkBoard( player.getPlayerBoard().getEnemy(),
-                                player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack());
+                    checkBoard( player.getPlayerBoard().getEnemy(), elem);
+                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
                 }
             })
         }
@@ -199,7 +199,7 @@ function setUpForm(player, player2) {
         deleteChildren();
         setUpPlayerBoard(player);
         setUpPlayerBoard(player2);
-        console.table(player.getPlayerBoard().getBoard());
+        // console.table(player.getPlayerBoard().getBoard());
         // player2.getPlayerBoard().autoAttack(player);
         // console.table(player.getPlayerBoard().getBoard());
     })
@@ -212,7 +212,7 @@ function setUpForm(player, player2) {
         if(player.getPlayerBoard().getShips().length < 5){
             setUpForm(player, player2);
         }
-        console.table(player.getPlayerBoard().getBoard());
+        // console.table(player.getPlayerBoard().getBoard());
     })
 }
 

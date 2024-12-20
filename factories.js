@@ -31,8 +31,8 @@ function createGameboard(owner){
     let board = [
         [0,0,0,0,0,0,0,0,0,0],      //0 = water
         [0,0,0,0,0,0,0,0,0,0],      //1 = ship
-        [0,0,0,0,0,0,0,0,0,0],      //2 = miss
-        [0,0,0,0,0,0,0,0,0,0],      //3 = wreck
+        [0,0,0,0,0,0,0,0,0,0],      //2 = ship - miss
+        [0,0,0,0,0,0,0,0,0,0],      //3 = ship - hitwreck
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
@@ -143,31 +143,36 @@ function createGameboard(owner){
 
             let length = Math.floor(Math.random()*5)
 
-            console.log(x)
-            console.log(y)
-            console.log(direction)
-            console.log(length)
+            // console.log(x)
+            // console.log(y)
+            // console.log(direction)
+            // console.log(length)
 
             getEnd(x,y,length,direction)
         }
     }
 
-    function autoAttack(player){
+    function autoAttack(givenPlayer){
         let x = Math.floor(Math.random()*10)
         let y = Math.floor(Math.random()*10)
 
-        if(player){player.getPlayerBoard().receiveAttack(y,x);}
+        if(givenPlayer){
+            givenPlayer.getPlayerBoard().receiveAttack(x,y);
+        }
 
-        console.log("attacked")
-        console.log(x)
-        console.log(y)
+        // console.log("attacked")
+        // console.log(x)
+        // console.log(y)
 
-        const nodeL = document.querySelectorAll(`[data-index]`);
-        // const nodeL = $(`[data-index=${x}]`);
+        const nodeL = document.querySelectorAll(`.coord`);
         const arr = Array.from(nodeL);
-        // const cords = arr.find();
-        console.log(arr[x])
-        return arr[x]
+        // console.log(arr[x]);
+        const elem = arr[x];
+        // console.log(typeof elem)
+        // console.log(elem)
+        const children = elem.childNodes;
+        // console.log(children[y])
+        return children[y];
     }
 
 

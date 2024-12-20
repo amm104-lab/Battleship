@@ -16,7 +16,7 @@ function setUp(player1,player2){
     player2.getPlayerBoard().setEnemy(player1)
     setUpContainer();
     player2.getPlayerBoard().autoPlacement()
-    console.table(player2.getPlayerBoard().getBoard())
+    // console.table(player2.getPlayerBoard().getBoard())
     setUpPlayerBoard(player1, player2);
     setUpForm(player1, player2);
     //setUpAutoAttack(player2);

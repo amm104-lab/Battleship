@@ -3,7 +3,6 @@ import {
     setUpContainer,
     setUpPlayerBoard,
     setUpForm
-    //setUpAutoAttack
 } from "./dom.js";
 
 const john = createPlayer("john");
@@ -19,7 +18,6 @@ function setUp(player1,player2){
     // console.table(player2.getPlayerBoard().getBoard())
     setUpPlayerBoard(player1, player2);
     setUpForm(player1, player2);
-    //setUpAutoAttack(player2);
 }
 
 

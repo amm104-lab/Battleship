@@ -42,16 +42,14 @@ function setUpPlayerBoard(player, player2) {
                     alert(`Game Over! ${player.getPlayerName()}'s ships have all been sunk!`);
                     return false
                 }
-                else{
-                    // console.log(player.getPlayerBoard().getEnemy().getPlayerName())
-                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
-                    let elem = player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack(player.getPlayerBoard().getEnemy())
-                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
-                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard());
+                // console.log(player.getPlayerBoard().getEnemy().getPlayerName())
+                // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
+                let elem = player.getPlayerBoard().getEnemy().getPlayerBoard().autoAttack(player.getPlayerBoard().getEnemy())
+                // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
+                // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard());
 
-                    checkBoard( player.getPlayerBoard().getEnemy(), elem);
-                    // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
-                }
+                checkBoard( player.getPlayerBoard().getEnemy(), elem);
+                // console.table(player.getPlayerBoard().getEnemy().getPlayerBoard().getBoard())
             })
         }
     }
@@ -60,7 +58,8 @@ function setUpPlayerBoard(player, player2) {
 function checkBoard(player, inite){
     for(let index = 0; index < player.getPlayerBoard().getBoard().length; index++){
         for(let undex = 0; undex < player.getPlayerBoard().getBoard()[index].length; undex++){
-            if(player.getPlayerBoard().getBoard()[index][undex] != 0){
+            if(player.getPlayerBoard().getBoard()[index][undex] != 0 && inite.style.backgroundColor === ""){
+                // console.log(player.getPlayerBoard().getBoard()[index][undex])
                 switch (player.getPlayerBoard().getBoard()[index][undex]){
                     case 2 :
                         inite.style.backgroundColor = "#4C4CCBFF";
@@ -69,6 +68,7 @@ function checkBoard(player, inite){
                         inite.style.backgroundColor = "grey";
                         break
                 }
+                // console.log(inite.style.backgroundColor)
             }
         }
     }
@@ -200,7 +200,6 @@ function setUpForm(player, player2) {
         setUpPlayerBoard(player);
         setUpPlayerBoard(player2);
         // console.table(player.getPlayerBoard().getBoard());
-        // player2.getPlayerBoard().autoAttack(player);
         // console.table(player.getPlayerBoard().getBoard());
     })
 
@@ -215,14 +214,6 @@ function setUpForm(player, player2) {
         // console.table(player.getPlayerBoard().getBoard());
     })
 }
-
-// function setUpAutoAttack(player){
-//     const board = document.querySelector(".board");
-//     board.addEventListener("click", () => {
-//         player.getPlayerBoard().autoAttack(player);
-//         console.table(player.getPlayerBoard().getBoard())
-//     })
-// }
 
 export {
     setUpPlayerBoard,
